@@ -1,11 +1,11 @@
 <?php
-
+require_once(__DIR__ . "/../config.php");
 header("Content-Type: application/json");
 
 // CONFIG
-$rss_url = "https://rss.beehiiv.com/feeds/bGv92l1wSR.xml";
+$rss_url = getenv('BEEHIIV_RSS');
 $cache_file = __DIR__ . "/rss-cache.json";
-$cache_time = 600; // 10 minutes
+$cache_time = 6000; // 10 minutes
 
 // Serve cache if fresh
 if (file_exists($cache_file) && (time() - filemtime($cache_file)) < $cache_time) {
@@ -34,7 +34,7 @@ foreach ($rss->channel->item as $item) {
     $namespaces = $item->getNamespaces(true);
     $image = "";
 
-    // 1️⃣ Try media:content
+    // Try media:content
     if (isset($namespaces['media'])) {
         $media = $item->children($namespaces['media']);
         if (isset($media->content)) {
@@ -44,12 +44,16 @@ foreach ($rss->channel->item as $item) {
         }
     }
 
-    // 2️⃣ If no media image, try extracting from description
+    // If no media image, try extracting from description
     if (!$image) {
         $description = (string) $item->description;
         if (preg_match('/<img.+src=["\'](.+?)["\']/', $description, $matches)) {
             $image = $matches[1];
         }
+    }
+
+    if (!$image && isset($item->enclosure)) {
+        $image = (string) $item->enclosure->attributes()->url;
     }
 
     $items[] = [
