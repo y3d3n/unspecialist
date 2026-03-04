@@ -2,11 +2,25 @@
 <html>
 <?php
 $site = "Unspecialist";
+$brief = "A home for curious minds building across art, code, design, and ideas.";
 $currentPath = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 ?>
 
 <head>
     <title><?= $title ?? $site ?></title>
+    <meta name="description" content="<?= $description ?? $brief ?>">
+
+    <meta property="og:title" content="<?= $title ?? $site ?>">
+    <meta property="og:description" content="<?= $og_description ?? $brief ?>">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://unspecialist.com">
+    <meta property="og:image" content="https://unspecialist.com/og-image.jpg">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="<?= $title ?? $site ?>">
+    <meta name="twitter:description" content="<?= $og_description ?? $brief ?>">
+    <meta name="twitter:image" content="https://unspecialist.com/og-image.jpg">
+
     <link rel="stylesheet" href="/assets/style.css">
     <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />

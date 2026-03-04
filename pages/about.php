@@ -1,10 +1,12 @@
 <?php
-$title = "About | Unspecialist.com";
+$title = "About | the Unspecialist.com";
+$description = "A Builder exploring art, technology, and long-term thinking. Writing about learning in public, internet leverage, and creative systems.";
+$og_description = "Meeth the Unspecialist - building across disciplines, documenting experiments, and designing long-term creative leverage.";
 require_once 'includes/header.php';
 ?>
 <main class="container about">
     <h1 class="md-title title-underlined">About</h1>
-    <div>
+    <div class="mt">
         <p>Hi, I’m <strong>Yeden</strong>, I’ve always had a hard time answering <strong>“What do
                 you do?”</strong> I had no clear & simple title. </p>
         <p>

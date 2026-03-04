@@ -1,5 +1,7 @@
 <?php
-$title = "Manifesto | Unspecialist.com";
+$title = "Manifesto — The Unspecialist Philosophy & Interdisciplinary Thinking";
+$description = "We were told to specialize. We weren’t built that way. A manifesto for curious minds who explore intersections instead of lanes.";
+$og_description = "A manifesto for generalists in a specialist world. Curiosity over credentials. Exploration over expertise. Long-term thinking over trends.";
 require_once 'includes/header.php';
 ?>
 <main>

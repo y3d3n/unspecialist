@@ -1,10 +1,14 @@
 <?php
-$title = "Unspecialist";
-require_once 'includes/header.php';
+$title = "Unspecialist — Thinking in the Internet/AI Age";
+$description = "Exploring interdisciplinary thinking, creative independence, and building in public across art, code, design and ideas.";
+
+$og_description = "For builders who refuse to be one thing. Learn in public. Connect disciplines. Build deliberately.";
+
 $jsondata = file_get_contents(__DIR__ . '/../assets/projects.json');
 
 // Convert JSON → PHP array
 $projects = json_decode($jsondata, true);
+require_once 'includes/header.php';
 ?>
 <main class="container home">
     <section class="center-txt top">
@@ -64,7 +68,7 @@ $projects = json_decode($jsondata, true);
             <span>Being Unspecialist is</span>
             <h2 class="topic">Not For <span class="rotated-bg">Everyone</span></h2>
         </div>
-        <div class="flex mt">
+        <div class="flex mt mb-flex">
             <div class="half">
                 <strong>You might feel at home here if:</strong>
                 <ul class="checkmark list">
@@ -93,7 +97,7 @@ $projects = json_decode($jsondata, true);
         </div>
     </section>
     <section>
-        <div class="flex intro mt mb-max">
+        <div class="flex intro mb-max mb-flex">
             <div class="left-box">
                 <div class="img-wrap">
                     <img src="/assets/profile-yeden.jpeg" alt="profile of Yeden">
